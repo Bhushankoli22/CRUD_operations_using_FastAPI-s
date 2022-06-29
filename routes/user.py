@@ -6,13 +6,18 @@ from fastapi.responses import JSONResponse
 
 user = APIRouter ()         
 
+# @user.get("/")
+# async def read_something():
+#     return {"message":"Hello World"}
+
 @user.get("/")
 async def read_data():
     return conn.execute(users.select()).fetchall()
 
 @user.get("/{id}")
-async def read_data():
-    return conn.execute(users.select().where(users.c.id == id)).fetchall()
+async def read_data(id: int):
+    conn.execute(users.select().where (users.c.id == id))
+    return conn.execute(users.select()).fetchone()
 
 @user.post("/")
 async def write_data(user:User):

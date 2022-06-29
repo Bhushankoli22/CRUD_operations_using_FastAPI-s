@@ -1,3 +1,5 @@
+# In models we create MySQL tables
+
 from tokenize import String
 from sqlalchemy import Table, Column
 from sqlalchemy.sql.sqltypes import Integer,String

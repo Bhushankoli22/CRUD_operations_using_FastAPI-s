@@ -3,3 +3,4 @@ from routes.index import user
 
 app = FastAPI()
 app.include_router(user)
+import pymysql
